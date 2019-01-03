@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16">
+	<title>Daftar Kecamatan - Pemerintah Kabupaten Jepara</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="javas.js"></script>
+</head>
+<body>
+<div class="bg"></div>
+<div class="container">	
+	<div class="header">
+	</div> <!--/ .header -->
+	<div class="topnav" id="myTopnav">
+	  <a href="index.html">Beranda</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Profil
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="#">Bupati</a>
+	      <a href="#">Wakil Bupati</a>
+	      <a href="#">Visi & Misi</a>
+	    </div>
+	  </div> 
+	  <a href="#agenda">Agenda</a>
+	  <a href="#berita">Berita</a>
+	  <a href="kecamatan.html" class="activem">Daftar Kecamatan</a>
+	  <a href="wisata.html">Daftar Tempat Wisata</a>
+	  <a href="pengaduan.html">Pengaduan Masyarakat</a>
+	  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+
+	<div class="main">
+		<div class="middle">
+			<h3>KECAMATAN DI KABUPATEN JEPARA</h3>
+                <button type="button" onclick="memuatDoc()">Daftar Kecamatan</button>
+                <br><br>
+                <table id="demo"></table>
+                </center>
+                <script>
+                console.time("waktu ini");
+                function memuatDoc() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                      fungsiku(this);
+                    }
+                  };
+                  xhttp.open("GET", "kecamatan.xml", true);
+                  xhttp.send();
+                  console.trace();
+                }
+                function fungsiku(xml) {
+                  var i;
+                  var xmlDoc = xml.responseXML;
+                  var table="<tr><th>Nomor</th><th>Nama Kecamatan</th></tr>";
+                  var x = xmlDoc.getElementsByTagName("kecamatan");
+                  for (i = 0; i <x.length; i++) { 
+                    table += "<tr><td>" +
+                    x[i].getElementsByTagName("nomor")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("namakec")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+                  }
+                  document.getElementById("demo").innerHTML = table;
+                }
+                function fungsidunialain(){
+                    memuatDoc();
+                }
+                console.timeEnd("waktu ini");
+                </script>    
+            <button onclick="fungsidunialain()">Mulai Trace</button>
+            <br/>
+            <br/>
+            <br/>
+            <h3>KECAMATAN DI KABUPATEN JEPARA</h3>
+                            <table>
+                                    <tr>
+                                            <td>Kecamatan : <select id="desa" 
+                                                        multiple="multiple"
+                                                        onchange = "infoSelect()">
+                                            <option value="Bangsri adalah sebuah kecamatan di Kabupaten Jepara, Provinsi Jawa Tengah, Indonesia. Dari kota Jepara berjarak 18 km ke arah Kabupaten Pati. Bangsri merupakan pusat pembangunan di Jepara bagian utara. Di Bangsri sarana ekonomi sangat memadai dengan jalan bagus, Pasar Bangsri yang Besar di lengkapi Terminal Bangsri.">Bangsri</option>
+                                            <option value="Batealit adalah sebuah kecamatan di Kabupaten Jepara. Terletak di sebelah utara berbatasan langsung dengan Kecamatan Kembang, Kecamatan Keling, Kecamatan Pakis Aji, Kecamatan Bangsri. Sebelah selatan Berbatasan dengan kecamatan Mayong, Kecamatan Kalinyamatan, Kecamatan Pecangaan. Pada sebelah timur berbatasan dengan Kabupaten Kudus, Sedangkan di sebelah barat berbatasan dengan Kecamatan Tahunan.">Batealit</option>
+                                            <option value="Donorojo adalah sebuah kecamatan di Kabupaten Jepara, Provinsi Jawa Tengah, Indonesia. Kecamatan ini merupakan hasil pemekaran dari kecamatan Keling sesuai peraturan daerah kabupaten Jepara Nomor 17 tahun 2007 tentang Pembentukan kecamatan Pakis Aji dan kecamatan Donorojo serta penataan kecamatan Mlonggo dan kecamatan Keling. Kecamatan Donorojo terdiri dari delapan desa yaitu: Bandungharjo, Banyumanis, Blingoh, Clering, Jugo, Sumberejo, Tulakan, dan Ujungwatu.">Donorojo</option>
+                                            <option value="Jepara merupakan kecamatan pusat atau ibukota dari Kabupaten Jepara.">Jepara</option>
+                                            <option value="Kalinyamatan adalah sebuah kecamatan di Kabupaten Jepara. Terletak di sebelah selatan kecamatan Pecangaan, Bagian timur wilayah kecamatan ini berbatasan dengan kecamatan Mayong, dimana bagian barat dan selatan kecamatan kalinyamatan dibatasi kecamatan Welahan.">Kalinyamatan</option>
+                                            <option value="Karimunjawa adalah sebuah Kecamatan di Kabupaten Jepara, provinsi Jawa Tengah, Indonesia. Karimunjawa merupakan kepulauan yang terletak di tengah Laut Jawa. Nama Karimunjawa disinyalir pertama kali (menurut cerita) muncul dari sejarah saat putra sunan muria yang sekaligus murid sunan kudus yang dikenal nakal, Syekh Amir Hasan dibuang ke kepulauan tersebut. pulau karimunjawa bila dilihat dari kejauhan seperti 'kerimun-kerimun'. karena itulah pulau tersebut dinamai karimun asal kata kerimun-kerimun. delimukan zamrud (en: emerald dove) mudah ditemukan di legon jelamun, pulau kemujan, Taman Nasional Karimunjawa, Jepara, Jawa Tengah.">Karimunjawa</option>
+                                            <option value="Kedung adalah sebuah kecamatan di Kabupaten Jepara. Kecamatan Kedung bagian timur wilayah kecamatan ini berbatasan dengan kecamatan Pecangaan, Sedangkan di bagian Utara berbatasan dengan Kecamatan Tahunan dimana bagian barat berbatasan dengan Laut Jawa dan sebelah selatan berbatasan dengan kecamatan Wedung.">Kedung</option>
+                                            <option value="Keling adalah sebuah kecamatan di Kabupaten Jepara. Di daerah ini konon pernah berdiri sebuah kerajaan dengan peradaban cukup maju pada abad ke-5 bernama Kalingga yang pernah diperintah oleh ratu Shima. Konon ratu ini sangat tegas dan memiliki peraturan terhadap rakyatnya barang siapa yang mencuri, akan dipotong tangannya. Bekas kerajaan ini diperkirakan perbukitan-perbukitan yang mencurigakan di sekitarnya sebagai tempat melihat laut pada zaman dahulu, ada pula yang memperkirakan bahwa bukit-bukit tersebut merupakan bekas tempat pemujaan (semacam candi besar).">Keling</option>
+                                            <option value="Kembang adalah sebuah kecamatan di Kabupaten Jepara. Terletak di sebelah utara berbatasan langsung dengan laut jawa, Sebelah selatan Berbatasan dengan Kecamatan Bangsri. Pada sebelah timur berbatasan dengan Kecamatan Keling, Sedangkan di sebelah barat berbatasan dengan Kecamatan Batealit.">Kembang</option>
+                                            <option value="Mayong adalah sebuah kecamatan di Kabupaten Jepara.Pada tahun 1549 Sunan Prawata raja keempat Demak mati dibunuh utusan Arya Penangsang, sepupunya yang menjadi bupati Jipang. Ratu Kalinyamat menemukan keris Kyai Betok milik Sunan Kudus menancap pada mayat kakaknya itu. Maka, Pangeran dan Ratu Kalinyamat pun berangkat ke Kudus minta penjelasan. Sunan Kudus adalah pendukung Arya Penangsang dalam konflik perebutan takhta sepeninggal Sultan Trenggana (1546). Ratu Kalinyamat datang menuntut keadilan atas kematian kakaknya. Sunan Kudus menjelaskan semasa muda Sunan Prawata pernah membunuh Pangeran Sekar Seda Lepen ayah Arya Penangsang, jadi wajar kalau ia sekarang mendapat balasan setimpal. Ratu Kalinyamat kecewa atas sikap Sunan Kudus. Ia dan suaminya memilih pulang ke Jepara. Di tengah jalan, mereka dikeroyok anak buah Arya Penangsang. Pangeran Kalinyamat tewas. Konon, ia sempat merambat di tanah dengan sisa-sisa tenaga, sehingga oleh penduduk sekitar, daerah tempat meninggalnya Pangeran Kalinyamat disebut desa Prambatan. Menurut cerita. Selanjutnya dengan membawa jenazah Pangeran Kalinyamat, Ratu Kalinyamat meneruskan perjalanan sampai pada sebuah sungai dan darah yang berasal dari jenazah Pangeran Kalinyamat menjadikan air sungai berwarna ungu, dan kemudian dikenal daerah tersebut dengan nama Kaliwungu. Semakin ke barat, dan dalam kondisi lelah, kemudia melewati Pringtulis. Dan karena selahnya dengan berjalan sempoyongan (moyang-moyong) di tempat yang sekarang dikenal dengan nama Mayong. Sesampainya di Purwogondo, disebut demikian karena di tempat inilah awal keluarnya bau dari jenazah yang dibawa Ratu Kalinyamat, dan kemudia melewati Pecangaan dan sampai di Mantingan.">Mayong</option>
+                                            <option value="Mlonggo adalah sebuah kecamatan di Kabupaten Jepara, Provinsi Jawa Tengah, Indonesia. Dengan adanya pemekaran wilayah dua kecamatan baru yaitu kecamatan Donorojo dan kecamatan Pakis Aji sesuai peraturan daerah kabupaten Jepara Nomor 17 tahun 2007 tentang Pembentukan kecamatan Pakis Aji dan kecamatan Donorojo serta penataan kecamatan Mlonggo dan kecamatan Keling, maka beberapa desa yaitu desa-desa: Bulungan, Kawak, Lebak, Mambak, Plajan, Slagi, Suwawal Timur, dan Tanjung selanjutnya menjadi wilayah kecamatan Pakis Aji.">Mlonggo</option>
+                                            <option value="Nalumsari adalah sebuah kecamatan di Kabupaten Jepara. Dulu Kecamatan ini bergabung dengan Kecamatan Mayong.Semula Kecamatan Mayong membawahi wilayah 33 desa. Dengan luasnya wilayah dan yang membentang dari utara tepat berada di kaki gunung muria sebelah selatan yaitu desa Bategede, Bungu dan Pancur dan keselatan berbatasan dengan sungai besar pemisah antara kabupaten Demak dan Jepara yaitu Desa Dorang, Mayong Kidul dan Paren. Wilayah yang begitu luasnya, merupakan kendala tersendiri dan membutuhkan waktu yang panjang dan lama untuk memberikan pelayanan ke semua lapisan masyarakat. maka dimulai pada tahun 1980 an didirikan perwakilan kecamatan yang mengelola dan melayani masyarakat dengan baik dan cepat. Sampai di awal tahun 1990 an perwakilan kecamatan itu diresmikan keberadaannya untuk menjadi kecamatan sendiri lepas dari kecamatan Mayong dengan membawahi 15 desa yang letaknya di Sebelah Timur Sungai.">Nalumsari</option>
+                                            <option value="Pakis Aji adalah sebuah kecamatan di Kabupaten Jepara, Provinsi Jawa Tengah, Indonesia. Kecamatan ini merupakan hasil pemekaran dari kecamatan Mlanggo sesuai peraturan daerah kabupaten Jepara Nomor 17 tahun 2007 tentang Pembentukan kecamatan Pakis Aji dan kecamatan Donorojo serta penataan kecamatan Mlonggo dan kecamatan Keling.">Pakis Aji</option>
+                                            <option value="Pecangaan adalah sebuah kecamatan di Kabupaten Jepara. Kecamatan Pecangaan terletak di sebelah selatan berbatasan dengan Kecamatan Kalinyamatan. Sebelah barat berbatasan dengan Kecamatan Kedung. Sebelah utara berbatasan dengan Kecamatan Tahunan. Sebelah timur berbatasan dengan Kecamatan Batealit. Pada zaman dahulu ketika Sultan Hadlirin sedang dalam pelarian dari Arya Penangsang. Sultan Hadlirin akhirnya terlepas dan Sultan Hadlirin berjalan kearah barat dengan langkah sempoyongan di tengah perjalan beliau bertemu dengan segrombolan burung cangak, kemudian beliau berkata “nanti wilayah ini akan di beri nama dengan desa Cangaan” kemudian beliau melanjutkan hingga akhirnya beliau wafat di desa bernama Mantingan.">Pecangaan</option>
+                                            <option value="Tahunan adalah sebuah kecamatan di Kabupaten Jepara. Kecamatan Tahunan terletak di 110°45’1,76”-110°38’41,76” Bujur Timur, 6°36’32,33”-6°38’38,96” Lintang Selatan. Sebelah Utara Kecamatan Tahunan berbatasan dengan Kecamatan Jepara dan Kecamatan Mlonggo, sedangkan di sebalah selatan berbatasan dengan Kecamatan Pecangaan dan Kecamatan Kedung, pada sebelah barat berbatasan dengan Laut Jawa, dan di sebelah timur berbatasan dengan Kecamatan Batealit.">Tahunan</option>
+                                            <option value="Welahan adalah sebuah kecamatan di Kabupaten Jepara. Welahan adalah desa juga merangkap kecamatan di Kabupaten Jepara, Jawa Tenagah yang terletak di perbatasan kabupaten Jepara dengan Demak, dapat diakses melalui jalan utama yang menghubungkan Jepara dengan Demak.Asal mula nama desa welahan berasal dari kata welah (dayung), yang pada era jawa kuno orang sering menambahkan akhiran (-an) untuk mempertegas kalimat, hingga tercipta kata welahan.Kata Welahan berasal dari kisah Baru Klinting (ular besar yang bertapa di lereng gunung) dan perjalanan seorang janda dari rawa pening asal mula Baru Klinting berasal, janda itu menyelamatkan diri dari banjir besar dengan menggunakan lesung (tempat menumbuk padi) sebagai perahu alternatif dan mengayuh lesungnya dengan welah(dayung), sesampainya di demak si janda menemukan airnya sudak dangkal yang dalam bahasa jawa air yang dangkal disebut demek-demek hingga karena termakan waktu namanya tersingkat menjadi demak, dan Welahnya(dayungnya) terbawa arus sampai perbatasan Jepara.Welahan sendiri dulunya adalah teluk dengan dibuktikannya sungai serang yang memanjang hingga laut dan dasar tanah Welahan yang penuh karang dan pasir laut. Terindikasi juga bahwa welahan mungkin sebelum islam masuk pada dinasti kalingga adalah pelabuhan, dengan ditemukannya kuburan kapal dalam beberapa galian sumur dan juga kumpulan palawija yang membatu di dasar Welahan. Besar kemungkinan Pegunungan Muria pernah mengalami longsor entah gempa atau letusan hingga menenggelamkan banyak sejarah, termasuk kerajaan Kalingga, dan sungai serang(perbatasan Jepara-Demak) yang semula teluk menjadi menyempit.Saksi sejarah welah-an(dayung) bisa di temukan di dasar sumur kuno di desa Welahan, sayang hanya bisa dilihat jika kemarau panjang saja, tepatnya di kampung pecinan rumah dari keturunan tiongkok bernama nyah Pasue. Bagi yang percaya sumur tersebut sampai saat ini masih dianggap keramat, bahkan bagi yang percaya air sumur tersebut dianggap dapat menyembuhkan berbagai macam penyakit. Sampai sekarang oleh pemilik rumah, dipergunakan sebagai tempat penjualan jamu dengan nama Nyah Pasue (sumur pusaka).">Welahan</option>
+                                            </select>
+                                            </select>
+                                            <br />
+                                               <hr />
+                                                Info:
+                                                <textarea name="teksInfo" id="desa1"
+                                                          rows="20" cols="44">
+                                                </textarea>
+                                            </td>
+                                    </tr>
+                            </table>
+		</div> <!--/ .middle -->
+		
+		<div class="left">
+			<h3>BUPATI DAN WAKIL BUPATI</h3>
+			<img src="bupati.jpg" width="100%">
+		</div> <!--/ .header -->
+
+
+		<div class="right">
+			<h3>PALING BANYAK DIBACA</h3>
+			<p>
+				<ul>
+					<li><a href="https://jepara.go.id/2018/11/02/kapolres-serahkan-kendaraan-hasil-curian-kepada-pemilik/">Kapolres Serahkan Kendaraan Hasil Curian Kepada Pemilik</a></li>
+					<li><a href="https://jepara.go.id/2018/11/05/pendidikan-di-jepara-harus-fokus-pada-penguatan-karakter/">Pendidikan di Jepara Harus Fokus pada Penguatan Karakter</a></li>
+					<li><a href="https://jepara.go.id/2018/11/02/meriahkan-hantaru-atr-bpn-jepara-gelar-aksi-kemanusiaan/">Meriahkan Hantaru, ATR/BPN Jepara Gelar Aksi Kemanusiaan</a></li>
+					<li><a href="https://jepara.go.id/2018/11/02/ketiga-kalinya-jepara-international-triathlon/">Ketiga Kalinya, Jepara International Triathlon</a></li>
+					<li><a href="https://jepara.go.id/2018/11/06/puluhan-anggota-upz-kecamatan-dilantik-serentak/">7 Puluhan Anggota UPZ Kecamatan Dilantik Serentak</a></li>
+					<li><a href="https://jepara.go.id/2018/11/02/kurang-dari-dua-pekan-atr-bpn-jepara-optimis-penuhi-target/">Kurang dari Dua Pekan, ATR/BPN Jepara Optimis Penuhi Target</a></li>
+				</ul>
+			</p>
+		</div> <!--/ .right -->
+
+	</div> <!--/ .main -->	
+
+	<div class="footer">
+		Copyright &copy; 2018 Pemerintah Kabupaten Jepara<br>
+		A11.2017.10574
+	</div> <!--/ .footer -->
+ 
+</div>
+
+</body>
+</script>
+</html>

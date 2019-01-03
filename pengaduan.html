@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16">
+	<title>Pengaduan Masyarakat - Pemerintah Kabupaten Jepara</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		function validasi(){
+        var namaValid    = /^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/;
+        var nama         = data.nama.value;
+        var email        = data.email.value;
+        var deskripsi    = data.deskripsi.value;
+        var alamat       = data.alamat.value;
+        var pesan        = '';
+
+        if (nama == '') {
+            pesan = '- Nama tidak boleh kosong\n';
+            }
+           
+        if (nama != '' && !nama.match(namaValid)) {
+            pesan += '- Nama tidak valid\n';
+            }
+             
+        if (email == '') {
+            pesan += '- Email tidak boleh kosong\n';
+            }     
+
+        if (alamat == '') {
+            pesan += '- Alamat mohon diisi\n';
+            }
+        if (deskripsi == '') {
+            pesan += '- Pengaduan harap diisi\n';
+            }
+        if (pesan != '') {
+            alert('Kesalahan teknis : \n'+pesan);
+            return false;
+            }
+        return true
+        }
+	</script>
+	<script type="text/javascript" src="javas.js"></script>
+</head>
+<body>
+<div class="bg"></div>
+<div class="container">	
+	<div class="header">
+	</div> <!--/ .header -->
+	<div class="topnav" id="myTopnav">
+	  <a href="index.html">Beranda</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">Profil
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="#">Bupati</a>
+	      <a href="#">Wakil Bupati</a>
+	      <a href="#">Visi & Misi</a>
+	    </div>
+	  </div> 
+	  <a href="#agenda">Agenda</a>
+	  <a href="#berita">Berita</a>
+	  <a href="kecamatan.html">Daftar Kecamatan</a>
+	  <a href="wisata.html">Daftar Tempat Wisata</a>
+	  <a href="pengaduan.html" class="activem">Pengaduan Masyarakat</a>
+	  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+
+	<div class="main">
+		<div class="middle">
+			<h3>FORM PENGADUAN MASYARAKAT</h3>
+                    <center>
+                    <h5>MOHON ISI FORM DIBAWAH INI DENGAN PENUH PERTANGGUNGJAWABAN</h5>
+                      <table class="table2">
+                          <form name="data" action="#" method="GET" align="center" onSubmit="return validasi()">
+                          <tr>
+                                  <td>Nama</td>
+                                  <td><input type="text" name="nama" placeholder="Nama" size=20></td>
+                          </tr>
+                          <tr>
+                                  <td>Email</td>
+                                  <td><input type="text" name="email" placeholder="Email" size=20></td>
+                          </tr>
+                          <tr>
+                                  <td>Alamat</td>
+                                  <td><input type="text" name="alamat" placeholder="Alamat" size=20></td>
+                          </tr>
+                          <tr>
+                                  <td>Pengaduan</td>
+                                  <td><textarea name="deskripsi" rows="5" cols="46"></textarea></td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td><input type="submit" value="Kirim Pesan"></td>
+                          </tr>
+                          </form>
+                      </table>
+                    </center>
+		</div> <!--/ .middle -->
+		
+		<div class="left">
+			<h3>BUPATI DAN WAKIL BUPATI</h3>
+			<img src="bupati.jpg" width="100%">
+		</div> <!--/ .header -->
+
+
+		<div class="right">
+			<h3>PALING BANYAK DIBACA</h3>
+			<p>
+				<ul>
+					<li><a href="https://jepara.go.id/2018/11/02/kapolres-serahkan-kendaraan-hasil-curian-kepada-pemilik/">Kapolres Serahkan Kendaraan Hasil Curian Kepada Pemilik</a></li>
+					<li><a href="https://jepara.go.id/2018/11/05/pendidikan-di-jepara-harus-fokus-pada-penguatan-karakter/">Pendidikan di Jepara Harus Fokus pada Penguatan Karakter</a></li>
+					<li><a href="https://jepara.go.id/2018/11/02/meriahkan-hantaru-atr-bpn-jepara-gelar-aksi-kemanusiaan/">Meriahkan Hantaru, ATR/BPN Jepara Gelar Aksi Kemanusiaan</a></li>
+					<li><a href="https://jepara.go.id/2018/11/02/ketiga-kalinya-jepara-international-triathlon/">Ketiga Kalinya, Jepara International Triathlon</a></li>
+					<li><a href="https://jepara.go.id/2018/11/06/puluhan-anggota-upz-kecamatan-dilantik-serentak/">7 Puluhan Anggota UPZ Kecamatan Dilantik Serentak</a></li>
+					<li><a href="https://jepara.go.id/2018/11/02/kurang-dari-dua-pekan-atr-bpn-jepara-optimis-penuhi-target/">Kurang dari Dua Pekan, ATR/BPN Jepara Optimis Penuhi Target</a></li>
+				</ul>
+			</p>
+		</div> <!--/ .right -->
+
+	</div> <!--/ .main -->	
+
+	<div class="footer">
+		Copyright &copy; 2018 Pemerintah Kabupaten Jepara<br>
+		A11.2017.10574
+	</div> <!--/ .footer -->
+ 
+</div>
+
+</body>
+</html>
